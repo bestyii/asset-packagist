@@ -47,17 +47,71 @@ class Storage extends Component implements StorageInterface
         $mutex->release('lock');
     }
 
+    protected function acquireLock2()
+    {
+        /* @var $mutex \yii\mutex\Mutex */
+        $mutex = Yii::$app->mutex;
+
+        if (!$mutex->acquire('lock2', 5)) {
+            throw new \Exception('failed get lock');
+        }
+    }
+
+    protected function releaseLock2()
+    {
+        /* @var $mutex \yii\mutex\Mutex */
+        $mutex = Yii::$app->mutex;
+
+        $mutex->release('lock2');
+    }
+
+    protected function acquireLock3()
+    {
+        /* @var $mutex \yii\mutex\Mutex */
+        $mutex = Yii::$app->mutex;
+
+        if (!$mutex->acquire('lock3', 5)) {
+            throw new \Exception('failed get lock');
+        }
+    }
+
+    protected function releaseLock3()
+    {
+        /* @var $mutex \yii\mutex\Mutex */
+        $mutex = Yii::$app->mutex;
+
+        $mutex->release('lock3');
+    }
+
+    protected function acquireLock4()
+    {
+        /* @var $mutex \yii\mutex\Mutex */
+        $mutex = Yii::$app->mutex;
+
+        if (!$mutex->acquire('lock4', 5)) {
+            throw new \Exception('failed get lock');
+        }
+    }
+
+    protected function releaseLock4()
+    {
+        /* @var $mutex \yii\mutex\Mutex */
+        $mutex = Yii::$app->mutex;
+
+        $mutex->release('lock4');
+    }
     /**
      * {@inheritdoc}
      */
     public function getNextId()
     {
         $this->acquireLock();
-        {
+        try {
             $nextID = $this->readLastId() + 1;
             $this->writeLastId($nextID);
+        } finally {
+            $this->releaseLock();
         }
-        $this->releaseLock();
 
         return $nextID;
     }
@@ -97,7 +151,7 @@ class Storage extends Component implements StorageInterface
         $path = $this->buildHashedPath($name, $hash);
         $latestPath = $this->buildHashedPath($name);
         if (!file_exists($path)) {
-            $this->acquireLock();
+            $this->acquireLock2();
             try {
                 if ($this->mkdir(dirname($path)) === false) {
                     throw new AssetFileStorageException('Failed to create a directory for asset-package', $package);
@@ -110,7 +164,7 @@ class Storage extends Component implements StorageInterface
                 }
                 $this->writeProviderLatest($name, $hash);
             } finally {
-                $this->releaseLock();
+                $this->releaseLock2();
             }
         } else {
             touch($latestPath);
@@ -170,7 +224,7 @@ class Storage extends Component implements StorageInterface
         $path = $this->buildHashedPath('provider-latest', $hash);
 
         if (!file_exists($path)) {
-            $this->acquireLock();
+            $this->acquireLock3();
 
             try {
                 if ($this->mkdir(dirname($path)) === false) {
@@ -184,7 +238,7 @@ class Storage extends Component implements StorageInterface
                 }
                 $this->writePackagesJson($hash);
             } finally {
-                $this->releaseLock();
+                $this->releaseLock3();
             }
         } else {
             touch($latestPath);
@@ -203,7 +257,7 @@ class Storage extends Component implements StorageInterface
                 ],
             ],
         ];
-        $this->acquireLock();
+        $this->acquireLock4();
         $filename = $this->buildPath('packages.json');
         try {
             if (file_put_contents($filename, Json::encode($data)) === false) {
@@ -211,7 +265,7 @@ class Storage extends Component implements StorageInterface
             }
             touch($filename);
         } finally {
-            $this->releaseLock();
+            $this->releaseLock4();
         }
     }
 
