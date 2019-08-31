@@ -35,7 +35,7 @@ class QueueController extends Controller
     /**
      * How many jobs will be executed without process restart
      */
-    const MAX_EXECUTED_JOBS = 100;
+    const MAX_EXECUTED_JOBS = 1000;
 
     /**
      * @var int
