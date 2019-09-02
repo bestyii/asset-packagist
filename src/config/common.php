@@ -16,6 +16,8 @@ return [
         '@runtime'  => '<<<base-dir>>>/runtime',
         '@composer' => '<<<base-dir>>>',
     ],
+    'sourceLanguage' => 'en',
+    'language' => 'zh-CN',
     'components' => [
         'db' => [
             'class' => \yii\db\Connection::class,
@@ -45,6 +47,18 @@ return [
         'librariesio' => [
             'class' => \hiqdev\assetpackagist\librariesio\LibrariesioRepository::class,
             'apiKey' => $params['librariesio.api_key'],
+        ],
+        'i18n' => [
+            'translations' => [
+                'app' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '<<<base-dir>>>/messages',
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+                        'app'=>'app.php'
+                    ],
+                ]
+            ],
         ],
     ],
     'container' => [

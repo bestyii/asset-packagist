@@ -58,7 +58,7 @@ $stability_colors = [
         <?php foreach ((array) $releases as $version => $release) : ?>
             <tr>
                 <th>
-                    <?php 
+                    <?php
                         $stability = VersionParser::parseStability($release['version_normalized']);
                         echo Html::tag('span', $version, ['class' => 'label label-' . $stability_colors[$stability]]);
                     ?>
@@ -73,9 +73,8 @@ $stability_colors = [
                         $links[] = Html::a(Yii::t('app', 'Get ZIP'), $release['dist']['url']);
                     }
                     if ($release['source']['url']) {
-                        $links[] = Html::a(Yii::t('app', 'see sources'), $release['source']['url']);
+                        $links[] = Html::a(Yii::t('app', 'see sources'), strtr($release['source']['url'], ['git@' => 'https://', ':' => '/']));
                     }
-
                     echo implode(' or ', $links);
                     ?>
                 </td>

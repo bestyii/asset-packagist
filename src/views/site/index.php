@@ -27,49 +27,47 @@ $this->params['noTitle'] = true;
             <div class="col-lg-4">
                 <h2>What is that?</h2>
 
-                <p>This repository allows installation of Bower and NPM packages as native Composer packages.</p>
-                <p><b>NO</b> plugins and <b>NO</b> Node.js are required.</p>
+                <p>这个仓库可以让npm和bower包作为composer原生包安装.</p>
+                <p><b>不</b> 需要插件 <b>不</b> 需要Node.js.</p>
 
-                <p>At the moment we've added most popular Bower and NPM packages 4000+ each.</p>
+                <p>我们已经添加了常用的npm和bower包</p>
                 <p>
-                    In case Composer fails to install some asset package,
-                    use the search line at the top of the page to check specific package health.
+                    当用Composer安装失败的时候,
+                    使用顶部的搜索栏检查指定包的健康状态.
                 </p>
-                <p>For NPM scoped packages use `scope--package` instead of `@scope/package`, e.g. `npm-asset/pusher--chatkit`.</p>
+                <p>For NPM scoped packages use `scope--package` instead of `@scope/package`, e.g. `npm-asset/pusher--chatkit`.(不知道怎么翻译)</p>
 
-                <p><?= Html::a('More info &raquo;', ['/site/about'], ['class' => 'btn btn-default']) ?>
+                <p><?= Html::a('更多信息 &raquo;', ['/site/about'], ['class' => 'btn btn-default']) ?>
             </div>
             <div class="col-lg-4">
-                <h2>Usage</h2>
+                <h2>用法</h2>
 
-                <p>List required packages like the following:</p>
+                <p>用以下方法添加包:</p>
                 <pre><code>"require": {
     "bower-asset/bootstrap": "^3.3",
     "npm-asset/jquery": "^2.2"
 }</code></pre>
 
-                <p>And add these lines:</p>
+                <p>然后加入以下行:</p>
                 <pre><code>"repositories": [
     {
         "type": "composer",
-        "url": "https://asset-packagist.org"
+        "url": "https://repo.asset-packagist.youtuoweb.com"
     }
 ]</code></pre>
             </div>
             <div class="col-lg-4">
-                <h2>Why?</h2>
+                <h2>为什么?</h2>
 
                 <p>Got tired of <code><a href="https://github.com/fxpio/composer-asset-plugin">fxp/composer-asset-plugin</a></code>.
                 </p>
                 <p>
-                    It's a good project with nice idea and good implementation.
-                    But it has some issues: it slows down <code>composer update</code> a lot and
-                    requires global installation, so affects all projects. Also there are Travis
-                    and Scrutinizer integration special problems, that are a bit annoying.
+                    它是一个好想法的项目，也是一个好的实现.但是它有一些问题：这是缓慢的<code>composer update</code> 而且需要全局安装一个插件, 这会影响所有项目. Also there are Travis
+                    and Scrutinizer integration special problems, that are a bit annoying(不知道怎么翻译).
                 </p>
 
-                <p>Questions?</p>
-                <p><?= Html::a('More info &raquo;', ['/site/contact'], ['class' => 'btn btn-default']) ?>
+                <p>问题?</p>
+                <p><?= Html::a('更多信息 &raquo;', ['/site/contact'], ['class' => 'btn btn-default']) ?>
             </div>
         </div>
 

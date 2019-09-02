@@ -32,7 +32,7 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
             ],
             'github' => [
                 'label' => 'GitHub',
-                'url' => 'https://github.com/hiqdev/asset-packagist',
+                'url' => 'https://github.com/haohetao/asset-packagist',
             ],
         ];
     }

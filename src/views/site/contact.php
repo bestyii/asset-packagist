@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <ul>
-        <li><a href="https://github.com/hiqdev/asset-packagist/issues">GitHub issues</a> is the preferred way, you're welcome to contribute too</li>
-        <li>my email: <a href="mailto:sol@hiqdev.com">sol@hiqdev.com</a></li>
+        <li><a href="https://github.com/haohetao/asset-packagist/issues">GitHub issues</a> is the preferred way, you're welcome to contribute too</li>
+        <li>my email: <a href="mailto:haohetao@gmail.com.com">sol@hiqdev.com</a></li>
     </ul>
 </div>
