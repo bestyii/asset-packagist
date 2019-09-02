@@ -18,7 +18,7 @@ $this->params['noTitle'] = true;
             <img src="<?= $logoUrl ?>/bower.svg" height="100px" style="margin:10px">
             <img src="<?= $logoUrl ?>/npm.svg" height="80px" style="margin:10px">
             <h3>Composer + Bower + NPM = friends forever!</h3>
-            <h5>asset-packagist中国区，该项目基于asset-packagist.org提供的源码，数据是独立的</h5>
+            <h5>asset-packagist中国区，该项目基于分支于asset-packagist.org，数据是独立的</h5>
         </div>
     </div>
 
