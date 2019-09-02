@@ -20,7 +20,7 @@ use yii\queue\cli\Signal;
 use yii\queue\ErrorEvent;
 use yii\queue\JobEvent;
 use yii\queue\Queue;
-use yii\queue\cli\Queue as CliQueue;
+//use yii\queue\cli\Queue as CliQueue;
 
 /**
  * Manages service Queue.
@@ -91,7 +91,7 @@ class QueueController extends Controller
         Event::on(Queue::class, Queue::EVENT_BEFORE_EXEC, function ($event) use ($out) {
             /** @var JobEvent $event */
             $out("%GNew job%n '" . get_class($event->job) . "'\n");
-            $this->ensureLimits();
+            //$this->ensureLimits();
         });
 
         Event::on(Queue::class, Queue::EVENT_AFTER_EXEC, function ($event) use ($out) {
@@ -104,13 +104,13 @@ class QueueController extends Controller
             $out("%RJob '" . get_class($event->job) . "' finished with error:%n '" . $event->error . "'\n");
         });
 
-        Event::on(Queue::class, CliQueue::EVENT_WORKER_LOOP, function (\yii\queue\cli\WorkerEvent $event) use ($out) {
+/*        Event::on(Queue::class, CliQueue::EVENT_WORKER_LOOP, function (\yii\queue\cli\WorkerEvent $event) use ($out) {
             $exitCode = $this->ensureLimits();
             if ($exitCode !== null) {
                 $out('Reached limit of ' . static::MAX_EXECUTED_JOBS . " executed jobs. Stopping process.\n");
                 $event->exitCode = $exitCode;
             }
-        });
+        });*/
 
         Event::on(AbstractPackageCommand::class, AbstractPackageCommand::EVENT_BEFORE_RUN, function ($event) use ($out) {
             /** @var AbstractPackageCommand $command */
