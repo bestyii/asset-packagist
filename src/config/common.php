@@ -52,7 +52,7 @@ return [
             'translations' => [
                 'app' => [
                     'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => __DIR__ . '/../messages',
+                    'basePath' => '@hiqdev/assetpackagist/messages',
                     'sourceLanguage' => 'en',
                     'fileMap' => [
                         'app'=>'app.php'
