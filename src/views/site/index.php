@@ -62,7 +62,7 @@ $this->params['noTitle'] = true;
                 <p>因为厌倦了 <code><a href="https://github.com/fxpio/composer-asset-plugin">fxp/composer-asset-plugin</a></code>.
                 </p>
                 <p>
-                    它是一个有好想法的项目，也是一个好的实现.但是它有一些问题：这是缓慢的<code>composer update</code> 而且需要全局安装一个插件, 这会影响所有项目. Also there are Travis
+                    它是一个有好想法的项目，也是一个好的实现.但是它有一些问题：当使用<code>composer update</code>时非常缓慢，而且需要全局安装一个插件, 这会影响所有项目. Also there are Travis
                     and Scrutinizer integration special problems, that are a bit annoying(不知道怎么翻译).
                 </p>
 
