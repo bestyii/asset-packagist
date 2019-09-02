@@ -25,7 +25,7 @@ $this->params['noTitle'] = true;
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>What is that?</h2>
+                <h2>这是什么?</h2>
 
                 <p>这个仓库可以让npm和bower包作为composer原生包安装.</p>
                 <p><b>不</b> 需要插件 <b>不</b> 需要Node.js.</p>
@@ -59,10 +59,10 @@ $this->params['noTitle'] = true;
             <div class="col-lg-4">
                 <h2>为什么?</h2>
 
-                <p>Got tired of <code><a href="https://github.com/fxpio/composer-asset-plugin">fxp/composer-asset-plugin</a></code>.
+                <p>因为厌倦了 <code><a href="https://github.com/fxpio/composer-asset-plugin">fxp/composer-asset-plugin</a></code>.
                 </p>
                 <p>
-                    它是一个好想法的项目，也是一个好的实现.但是它有一些问题：这是缓慢的<code>composer update</code> 而且需要全局安装一个插件, 这会影响所有项目. Also there are Travis
+                    它是一个有好想法的项目，也是一个好的实现.但是它有一些问题：这是缓慢的<code>composer update</code> 而且需要全局安装一个插件, 这会影响所有项目. Also there are Travis
                     and Scrutinizer integration special problems, that are a bit annoying(不知道怎么翻译).
                 </p>
 
