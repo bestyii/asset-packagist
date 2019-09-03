@@ -58,7 +58,7 @@ class QueueController extends Controller
      */
     public function actionRun()
     {
-        $this->queue->run(true);
+        $this->queue->run(true, 5);
     }
 
     /**
