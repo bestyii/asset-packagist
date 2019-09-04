@@ -73,7 +73,7 @@ $stability_colors = [
                         $links[] = Html::a(Yii::t('app', 'Get ZIP'), $release['dist']['url']);
                     }
                     if ($release['source']['url']) {
-                        $links[] = Html::a(Yii::t('app', 'see sources'), strtr($release['source']['url'], ['git@' => 'https://', ':' => '/']));
+                        $links[] = Html::a(Yii::t('app', 'see sources'), strpos('git@',$release['source']['url'])?strtr($release['source']['url'], ['git@' => 'https://', ':' => '/']):$release['source']['url']);
                     }
                     echo implode(' or ', $links);
                     ?>
