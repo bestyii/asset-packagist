@@ -53,7 +53,7 @@ $this->params['noTitle'] = true;
                 <pre><code>"repositories": [
     {
         "type": "composer",
-        "url": "https://repo.asset-packagist.youtuoweb.com"
+        "url": "https://repo.asset-packagist.youtuoapp.com"
     }
 ]</code></pre>
             </div>
