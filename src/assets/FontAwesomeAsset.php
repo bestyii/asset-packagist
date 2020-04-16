@@ -12,16 +12,10 @@ namespace hiqdev\assetpackagist\assets;
 
 use yii\web\AssetBundle;
 
-class AppAsset extends AssetBundle
+class FontAwesomeAsset extends AssetBundle
 {
-    public $sourcePath = '@hiqdev/assetpackagist/assets';
+    public $sourcePath = '@vendor/fortawesome/font-awesome';
     public $css = [
-        'css/site.css',
-    ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-        'yii\web\JqueryAsset',
-        'hiqdev\assetpackagist\assets\FontAwesomeAsset'
+        'css/font-awesome.css',
     ];
 }

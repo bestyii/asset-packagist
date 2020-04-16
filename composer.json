@@ -59,7 +59,8 @@
         "hiqdev/yii2-hiart-guzzle": "<2.0 || dev-master",
         "hiqdev/yii2-hiart-librariesio": "<2.0 || dev-master",
         "guzzlehttp/guzzle": "^6.0",
-        "yiisoft/yii2-queue": "^2.0.2"
+        "yiisoft/yii2-queue": "^2.0.2",
+        "fortawesome/font-awesome": "^4.7"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "^2.0",
@@ -83,7 +84,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://asset-packagist.org"
+            "url": "https://repo.asset-packagist.youtuoapp.com"
         }
     ]
 }
