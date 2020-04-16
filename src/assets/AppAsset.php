@@ -19,7 +19,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
-        'https://use.fontawesome.com/483397b330.js',
+        'js/483397b330.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
