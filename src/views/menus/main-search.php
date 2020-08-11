@@ -37,13 +37,13 @@ $this->registerCss('
                 'id' => 'query',
                 'required' => true,
                 'autocomplete' => false,
-                'placeholder' => 'package name to search, powered by libraries.io',
+                'placeholder' => '输入包名进行搜素，如:jquery 或 bower-asset/jquery',
                 'class' => 'form-control',
                 'autofocus' => true,
                 'tabindex' => 1,
             ]) ?>
             <?= Html::dropDownList('platform', (isset($this->params['searchPlatform']) ? $this->params['searchPlatform'] : 'bower,npm'), [
-                'bower,npm'   => 'Any',
+                'bower,npm'   => '全部',
                 'bower' => 'Bower',
                 'npm'   => 'NPM',
                     ], [

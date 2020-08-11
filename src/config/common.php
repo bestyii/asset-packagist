@@ -10,7 +10,7 @@
 
 return [
     'id'    => 'asset-packagist',
-    'name'  => 'Asset Packagist',
+    'name'  => 'Asset Packagist 中文站',
     'aliases' => [
         '@storage'  => '<<<base-dir>>>/web',
         '@runtime'  => '<<<base-dir>>>/runtime',

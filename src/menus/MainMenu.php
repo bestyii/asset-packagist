@@ -23,17 +23,13 @@ class MainMenu extends \hiqdev\yii2\menus\Menu
     {
         return [
             'about' => [
-                'label' => Yii::t('hisite', 'About'),
+                'label' => Yii::t('hisite', '关于'),
                 'url' => ['/site/about'],
             ],
-            'contact' => [
-                'label' => Yii::t('hisite', 'Contact'),
-                'url' => ['/site/contact'],
-            ],
-            'github' => [
-                'label' => 'GitHub',
-                'url' => 'https://github.com/haohetao/asset-packagist',
-            ],
+            'bestyii' => [
+                'label' => 'Best Yii 开发者社区',
+                'url' => 'https://www.bestyii.com',
+            ]
         ];
     }
 }

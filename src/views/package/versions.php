@@ -31,9 +31,9 @@ $stability_colors = [
     <?php endif ?>
 
     <br><br>
-    <b>Last updated:</b> <?= Yii::$app->formatter->asDateTime($package->getUpdateTime()) ?> (<?= Yii::$app->formatter->asRelativeTime($package->getUpdateTime()) ?>)
+    <b>更新日期:</b> <?= Yii::$app->formatter->asDateTime($package->getUpdateTime()) ?> (<?= Yii::$app->formatter->asRelativeTime($package->getUpdateTime()) ?>)
     <br>
-    <b>Legend:</b>
+    <b>图例:</b>
     <?php foreach ($stability_colors as $stability => $color) : ?>
         <?= Html::tag('span', $stability, ['class' => 'label label-' . $color]) . ' ' ?>
     <?php endforeach ?>

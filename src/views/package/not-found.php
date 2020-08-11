@@ -4,6 +4,7 @@
  * @var \yii\web\View
  * @var \hiqdev\assetpackagist\models\AssetPackage $package
  */
+
 use yii\helpers\Html;
 
 $this->title = 'Oops... Package was not found';
@@ -22,7 +23,7 @@ if ($package->getType() === 'npm') {
 
 ?>
 
-<h4>Could you ensure this package exists on <?= $link ?>?</h4>
-<p> In case it exists, but still can not be obtained by asset-packagist &mdash;
-    <?= Html::a('report on GitHub', 'https://github.com/hiqdev/asset-packagist/issues/new') ?>
+<h4>你确定这个包在 <?= $link ?>中存在?</h4>
+<p> 如果存在, 但是资源包又无法从 asset-packagist 获得&mdash;
+    <?= Html::a('报告缺陷 GitHub', 'https://github.com/bestyii/asset-packagist/issues/new') ?>
 </p>

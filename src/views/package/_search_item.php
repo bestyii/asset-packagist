@@ -24,16 +24,16 @@ $url = str_replace('%2F', '/', $url);
         <?php endif ?>
         <?php if ($model->latest_release_number): ?>
             <p class="latest_release_number">
-                Latest Release: <span class="label label-success"><?= Html::encode($model->latest_release_number) ?></span>
+                最新版: <span class="label label-success"><?= Html::encode($model->latest_release_number) ?></span>
                 <?php if ($model->latest_release_published_at): ?>
-                at <?= Yii::$app->formatter->asDateTime($model->latest_release_published_at) ?>
+                @ <?= Yii::$app->formatter->asDateTime($model->latest_release_published_at) ?>
                 (<?= Yii::$app->formatter->asRelativeTime($model->latest_release_published_at)?>)
                 <?php endif ?>
             </p>
         <?php endif ?>
         <?php if (!empty($model->keywords)): ?>
             <p class="keywords">
-                Keywords:
+                关键词:
                 <span class="label label-default">
                     <?php $keywords = array_map(function ($keyword) {
                             return Html::encode($keyword);

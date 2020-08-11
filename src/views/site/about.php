@@ -1,29 +1,30 @@
 <?php
 
 /** @var yii\web\View $this */
-$this->title = 'About';
+$this->title = '关于 Asset Packagist';
 $this->params['subtitle'] = 'Composer + Bower + NPM = friends forever!';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="site-about">
-    <h1>How it works</h1>
+    <h1>工作原理</h1>
 
-    <p>Asset Packagist provides information about Bower and NPM packages in a similar way to Packagist does it for
-        Composer packages.
-        So when you run composer for your project with enabled Asset Packagist repository composer knows all the
-        available releases of bower-asset and npm-asset packages and knows how to download their files.
+    <p>
+        Asset Packagist 提供关于Bower和NPM包的信息，类似于Packagist为Composer包的信息。
+    <p>
+    </p>
+        因此，当您在启用资源包（Asset Package）的项目中运行<code>composer</code>，composer知道bower-asset和npm-asset包的所有可用版本，并知道如何下载它们的文件。
+
     </p>
 
-    <p>First we add Bower and NPM packages to our repository. Script collects package information and prepares JSON file
-        in Packagist format.
-        For example you can look what we have for Bower <code>moment</code> package:
+    <p>首先将 Bower 和 NPM 包 加入到我们自己的仓库中. 脚本会收集包信息并且以Packagist的格式处理json文件.
+        例如，你可以看看我们有什么用 Bower <code>moment</code> 包:
     </p>
 
-    <p><a href="/p/bower-asset/moment/latest.json">https://asset-packagist.org/p/bower-asset/moment/latest.json</a>
+    <p><a href="/p/bower-asset/moment/latest.json">https://asset-packagist.cn/p/bower-asset/moment/latest.json</a>
     <p>
 
-    <p>The file contains description of all of the versions of the package in the following format:</p>
+    <p>该文件包含了该包的所有版本的说明，格式如下:</p>
 
     <pre><code>
     "2.13.0.0": {
@@ -44,22 +45,21 @@ $this->params['breadcrumbs'][] = $this->title;
     },
     </code></pre>
 
-    <p>So when you run composer it downloads info about packages provided by Asset Packagist repository, then composer
-        resolves dependencies and finds proper versions of required packages, then it downloads packages files to <code>vendor</code>
-        directory of your project (actually composer doesn't care if these are PHP or JS or whatever files).</p>
+    <p>
+        所以，当您运行<code>composer</code>时，它会下载Asset Packagist 库提供的包信息，然后 Composer 解析依赖项并找到所需包的正确版本，然后将包文件下载到项目的<code>vendor</code>目录中
+         (实际上composer并不关心这些文件是PHP还是JS或其他文件).</p>
 
-    <p>All the JSON files are stored and served as static files on Asset Packagist side and composer effectively cashes
-        those files on your side so everything works as quick as possible.</p>
+    <p>所有的JSON文件都作为静态文件存储在 Asset Packagist 端， 项目中 Composer 会有效的找到这些文件，这样一切都能尽快完成。</p>
 
-    <h1>Installing to a custom path</h1>
+    <h1>安装到自定义路径</h1>
 
-    <p>Asset Packagist is NOT a plugin so it can't affect where the package will be installed.<br>
-        By default <code>bower-asset/bootstrap</code> package will be installed to
-        <code>vendor/bower-asset/bootstrap</code> folder.</p>
+    <p>Asset Packagist 不是插件, 所以他不受 Composer的包安装位置所限制.<br>
+        默认 <code>bower-asset/bootstrap</code> 包将会安装到
+        <code>vendor/bower-asset/bootstrap</code> 目录中.</p>
 
-    <p>But you can achieve installing to custom path with <code><a
+    <p>你可以通过 <code><a
                     href="https://github.com/oomphinc/composer-installers-extender">oomphinc/composer-installers-extender</a></code>
-        plugin like this:</p>
+        插件，来自定义安装路径，如:</p>
     <pre><code>
     "require": {
         "oomphinc/composer-installers-extender": "^1.1",
@@ -75,18 +75,16 @@ $this->params['breadcrumbs'][] = $this->title;
     "repositories": [
         {
             "type": "composer",
-            "url": "https://asset-packagist.org"
+            "url": "https://asset-packagist.cn"
         }
     ]
     </code></pre>
 
     <h1>Yii2</h1>
 
-    <p>Yii2 expects Bower and NPM packages to be installed to <code>vendor/bower</code> and <code>vendor/npm</code>
-        folders respectively.</p>
+    <p>Yii2 默认会将 Bower 和 NPM 包 分别安装到 <code>vendor/bower</code> 和 <code>vendor/npm</code>目录中.</p>
 
-    <p>So, to use asset-packagist for Yii2 projects it's necessary to reassign Bower and NPM aliases in your application
-        config like this:</p>
+    <p>因此, 在Yii2项目中引用 asset-packagist, 必须在程序的配置文件中重新指定 Bower 和 NPM 别名的映射，如:</p>
 
     <pre><code>
     $config = [
@@ -99,13 +97,11 @@ $this->params['breadcrumbs'][] = $this->title;
     ];
     </code></pre>
 
-    <h1>Migrating from composer-asset-plugin</h1>
+    <h1>从 composer-asset-plugin 迁移</h1>
 
-    <p>Moving from <a href="https://github.com/fxpio/composer-asset-plugin">composer-asset-plugin</a> is not
-        straightforward when you host several applications on single server. It's known that asset packagist
-        and asset plugin don't work well together when plugin is installed in global scope. So, to not affect
-        other applications by deleting the plugin, you may disable the plugin locally via <code>composer.json</code>
-        config option <i>(you need plugin version ≥ 1.3.0 for this)</i>:</p>
+    <p>在同一台服务器中运行了多个应用时，从 <a href="https://github.com/fxpio/composer-asset-plugin">composer-asset-plugin</a>迁移是个麻烦事. 你需要注意：当这个插件在全局安装时， asset packagist
+        与 asset plugin 同时存在会有冲突. 所以, 为了不影响其他应用的情况下停掉这个插件, 你可以通过在 <code>composer.json</code>
+        文件中 config 选项中禁用掉这个插件。 <i>(你的 plugin 版本需要 ≥ 1.3.0 )</i>:</p>
 
     <pre><code>
     "config": {
@@ -115,9 +111,11 @@ $this->params['breadcrumbs'][] = $this->title;
     }
     </code></pre>
 
-    <h1>Acknowledgements</h1>
+    <h1>致谢</h1>
 
-    <p>This project uses Francois Pluchino's <a href="https://github.com/fxpio/composer-asset-plugin">composer-asset-plugin</a>
-        to convert Bower and NPM packages to Composer format.</p>
-    <p>The search is powered by <a href="https://libraries.io/">https://libraries.io/</a>.</p>
+    <p>提供优化版本的中文开发者 <a href="https://github.com/haohetao/asset-packagist.dev">haohetao/asset-packagist.dev</a></p>
+    <p>原始作者 <a href="https://github.com/hiqdev/asset-packagist.dev">hiqdev/asset-packagist.dev</a></p>
+    <p>这个项目基于 Francois Pluchino's <a href="https://github.com/fxpio/composer-asset-plugin">composer-asset-plugin</a>
+        来转换 Bower 和 NPM 包信息成为 Composer 格式.</p>
+    <p>搜索驱动 <a href="https://libraries.io/">https://libraries.io/</a>.</p>
 </div>

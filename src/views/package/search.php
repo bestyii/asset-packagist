@@ -11,7 +11,7 @@ use yii\helpers\Html;
 
 $query = Html::encode($query);
 
-$this->title = 'Results for "' . $query . '"';
+$this->title = '"' . $query . '"搜索结果';
 $this->params['searchQuery'] = $query;
 $this->params['searchPlatform'] = $platform;
 $this->params['subtitle'] = $query;

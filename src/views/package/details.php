@@ -11,7 +11,7 @@ use yii\helpers\Inflector;
 use yii\helpers\Json;
 use yii\helpers\Url;
 
-$this->title = 'Search';
+$this->title = $package->getFullName();
 $this->params['searchQuery'] = $query;
 $this->params['subtitle'] = $query;
 $this->params['breadcrumbs'][] = $this->title;

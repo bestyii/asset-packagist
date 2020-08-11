@@ -7,7 +7,7 @@
  */
 use yii\helpers\Html;
 
-$this->title = 'Package update failed';
+$this->title = '更新失败';
 
 ?>
 <hr/>
@@ -28,5 +28,5 @@ if ($package->getType() === 'npm') {
 ?>
 
 <h4>Could you ensure this package exists on <?= $link ?>?</h4>
-<p>Think asset-packagist is guilty? <?= Html::a('Report on GitHub', 'https://github.com/hiqdev/asset-packagist/issues/new') ?>
+<p>Think asset-packagist is guilty? <?= Html::a('Report on GitHub', 'https://github.com/bestyii/asset-packagist/issues/new') ?>
 </p>
