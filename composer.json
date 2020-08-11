@@ -84,7 +84,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://repo.asset-packagist.youtuoapp.com"
+            "url": "https://asset-packagist.cn"
         }
     ]
 }
