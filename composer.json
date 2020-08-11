@@ -84,7 +84,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://asset-packagist.cn"
+            "url": "https://asset-packagist.org"
         }
     ]
 }
