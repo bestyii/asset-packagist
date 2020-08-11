@@ -11,7 +11,7 @@
 
 ## Composer + Bower + NPM = friends forever!
 
-This package is the core part of https://asset-packagist.org/ project.
+This package is the core part of https://asset-packagist.cn/ project.
 
 Asset Packagist allows installation of Bower and NPM packages as native
 Composer packages.
@@ -44,12 +44,12 @@ And add these lines:</p>
 "repositories": [
     {
         "type": "composer",
-        "url": "https://asset-packagist.org"
+        "url": "https://asset-packagist.cn"
     }
 ]
 ```
 
-More information can be found on [about page](https://asset-packagist.org/site/about).
+More information can be found on [about page](https://asset-packagist.cn/site/about).
 
 ## License
 
