@@ -4,6 +4,7 @@
  * @var yii\web\View
  * @var \hiqdev\assetpackagist\models\AssetPackage $package
  */
+
 use Composer\Semver\VersionParser;
 use yii\helpers\Html;
 
@@ -31,7 +32,8 @@ $stability_colors = [
     <?php endif ?>
 
     <br><br>
-    <b>更新日期:</b> <?= Yii::$app->formatter->asDateTime($package->getUpdateTime()) ?> (<?= Yii::$app->formatter->asRelativeTime($package->getUpdateTime()) ?>)
+    <b>更新日期:</b> <?= Yii::$app->formatter->asDateTime($package->getUpdateTime()) ?>
+    (<?= Yii::$app->formatter->asRelativeTime($package->getUpdateTime()) ?>)
     <br>
     <b>图例:</b>
     <?php foreach ($stability_colors as $stability => $color) : ?>
@@ -55,12 +57,12 @@ $stability_colors = [
         </tr>
         </thead>
         <tbody>
-        <?php foreach ((array) $releases as $version => $release) : ?>
+        <?php foreach ((array)$releases as $version => $release) : ?>
             <tr>
                 <th>
                     <?php
-                        $stability = VersionParser::parseStability($release['version_normalized']);
-                        echo Html::tag('span', $version, ['class' => 'label label-' . $stability_colors[$stability]]);
+                    $stability = VersionParser::parseStability($release['version_normalized']);
+                    echo Html::tag('span', $version, ['class' => 'label label-' . $stability_colors[$stability]]);
                     ?>
                 </th>
                 <td>
@@ -73,7 +75,7 @@ $stability_colors = [
                         $links[] = Html::a(Yii::t('app', 'Get ZIP'), $release['dist']['url']);
                     }
                     if ($release['source']['url']) {
-                        $links[] = Html::a(Yii::t('app', 'see sources'), strpos('git@',$release['source']['url'])?strtr($release['source']['url'], ['git@' => 'https://', ':' => '/']):$release['source']['url']);
+                        $links[] = Html::a(Yii::t('app', 'see sources'), strpos('git@', $release['source']['url']) ? strtr($release['source']['url'], [':' => '/', 'git@' => 'https://']) : $release['source']['url']);
                     }
                     echo implode(' or ', $links);
                     ?>
