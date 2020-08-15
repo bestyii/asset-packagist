@@ -10,6 +10,12 @@
 
 namespace hiqdev\assetpackagist\controllers;
 
+use hiqdev\assetpackagist\models\AssetPackage;
+use Yii;
+use yii\web\Response;
+use yii2tech\sitemap\File;
+
+
 class SiteController extends \yii\web\Controller
 {
     public function actions()
@@ -38,5 +44,50 @@ class SiteController extends \yii\web\Controller
     public function actionContact()
     {
         return $this->render('contact');
+    }
+
+    public function actionSitemap($refresh = 0)
+    {
+        // get content from cache:
+        $content = Yii::$app->cache->get('sitemap.xml');
+        if ($content === false || $refresh = 1) {
+            // if no cached value exists - create an new one
+            // create sitemap file in memory:
+            $sitemap = new File();
+            $sitemap->fileName = 'php://memory';
+
+            // write your site URLs:
+            $sitemap->writeUrl(['site/index'], ['priority' => '0.9']);
+            $sitemap->writeUrl(['site/about'], ['priority' => '0.9']);
+            $sitemap->writeUrl(['site/contact'], ['priority' => '0.9']);
+            // ...
+
+            $query = (new\yii\db\Query())
+                ->from('package');
+
+            foreach ($query->each() as $package) {
+
+                $sitemap->writeUrl(['package/detail', 'fullname' => AssetPackage::buildFullName($package['type'], $package['name'])], ['priority' => '0.8']);
+            }
+
+// or to iterate the row one by one
+            foreach ($query->each() as $user) {
+                // 数据从服务端中以 100 个为一组批量获取，
+                // 但是 $user 代表 user 表里的一行数据
+            }
+            // get generated content:
+            $content = $sitemap->getContent();
+
+            // save generated content to cache
+            Yii::$app->cache->set('sitemap.xml', $content);
+        }
+
+        // send sitemap content to the user agent:
+        $response = Yii::$app->getResponse();
+        $response->format = Response::FORMAT_RAW;
+        $response->getHeaders()->add('Content-Type', 'application/xml;');
+        $response->content = $content;
+
+        return $response;
     }
 }

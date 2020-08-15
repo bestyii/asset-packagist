@@ -14,6 +14,7 @@ return [
         'urlManager' => [
             'rules' => [
                 '/package/<fullname:\w+\-asset\/[\w-]+>' => '/package/detail',
+                'sitemap.xml' => 'site/sitemap',
             ],
         ],
         'themeManager' => [
