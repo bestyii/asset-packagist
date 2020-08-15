@@ -23,13 +23,14 @@ $this->params['breadcrumbs'][] = $this->title;
             <small class="repository-link">
                 <?php
                 if ($package->getType() === 'npm') {
-                    $link = 'https://npmjs.com/package/' . $package->getName();
+                    $link = 'https://npmjs.com/package/' . $package->getScopedName();
                 } elseif ($package->getType() === 'bower') {
                     $link = 'https://bower.io/search?q=' . $package->getName();
                 }
                 echo Html::a(
                     Yii::t('app', 'see on {registry}', ['registry' => Inflector::titleize($package->getType())]),
-                    $link
+                    $link,
+                    ['target'=>'_blank']
                 ) ?>
             </small>
         </h1>

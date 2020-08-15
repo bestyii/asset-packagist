@@ -130,7 +130,10 @@ class AssetPackage extends BaseObject
     {
         return $this->_name;
     }
-
+    public function getScopedName()
+    {
+        return strstr($this->_name,'--')?'@'.str_replace('--','/',$this->_name):$this->_name;
+    }
     public function getHash()
     {
         return $this->_hash;
