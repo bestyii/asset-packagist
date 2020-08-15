@@ -72,5 +72,5 @@ JS
 );
 
 if ($forceUpdate) {
-    $this->registerJs("$('#fetch-btn').trigger('click')");
+    //$this->registerJs("$('#fetch-btn').trigger('click')");
 }

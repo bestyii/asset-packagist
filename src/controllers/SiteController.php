@@ -68,6 +68,7 @@ class SiteController extends \yii\web\Controller
             foreach ($query->each() as $package) {
 
                 $sitemap->writeUrl(['package/detail', 'fullname' => AssetPackage::buildFullName($package['type'], $package['name'])], ['priority' => '0.8']);
+                $sitemap->writeUrl(['package/search', 'query' => $package['name'],'platform'=>$package['type']], ['priority' => '0.9']);
             }
 
 // or to iterate the row one by one
