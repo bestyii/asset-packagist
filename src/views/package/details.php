@@ -72,5 +72,6 @@ JS
 );
 
 if ($forceUpdate) {
+    //todo remove
     //$this->registerJs("$('#fetch-btn').trigger('click')");
 }
