@@ -60,7 +60,7 @@ class SiteController extends \yii\web\Controller
             $sitemap->writeUrl(['site/index'], ['priority' => '0.9']);
             $sitemap->writeUrl(['site/about'], ['priority' => '0.9']);
             $sitemap->writeUrl(['site/contact'], ['priority' => '0.9']);
-            // ...
+// or to iterate the row one by one
 
             $query = (new\yii\db\Query())
                 ->from('package');
@@ -68,14 +68,9 @@ class SiteController extends \yii\web\Controller
             foreach ($query->each() as $package) {
 
                 $sitemap->writeUrl(['package/detail', 'fullname' => AssetPackage::buildFullName($package['type'], $package['name'])], ['priority' => '0.8']);
-                $sitemap->writeUrl(['package/search', 'query' => $package['name'],'platform'=>$package['type']], ['priority' => '0.9']);
+                $sitemap->writeUrl(['package/search', 'query' => $package['name']], ['priority' => '0.9']);
             }
 
-// or to iterate the row one by one
-            foreach ($query->each() as $user) {
-                // 数据从服务端中以 100 个为一组批量获取，
-                // 但是 $user 代表 user 表里的一行数据
-            }
             // get generated content:
             $content = $sitemap->getContent();
 
