@@ -50,16 +50,17 @@ class SiteController extends \yii\web\Controller
     {
         // get content from cache:
         $content = Yii::$app->cache->get('sitemap.xml');
-        if ($content === false || $refresh = 1) {
+        if ($content === false || $refresh == 1) {
             // if no cached value exists - create an new one
             // create sitemap file in memory:
             $sitemap = new File();
             $sitemap->fileName = 'php://memory';
 
             // write your site URLs:
-            $sitemap->writeUrl(['site/index'], ['priority' => '0.9']);
-            $sitemap->writeUrl(['site/about'], ['priority' => '0.9']);
-            $sitemap->writeUrl(['site/contact'], ['priority' => '0.9']);
+            $sitemap->writeUrl(['site/index']);
+            $sitemap->writeUrl(['site/about']);
+            $sitemap->writeUrl(['site/contact']);
+
 // or to iterate the row one by one
 
             $query = (new\yii\db\Query())
@@ -67,8 +68,8 @@ class SiteController extends \yii\web\Controller
 
             foreach ($query->each() as $package) {
 
-                $sitemap->writeUrl(['package/detail', 'fullname' => AssetPackage::buildFullName($package['type'], $package['name'])], ['priority' => '0.8']);
-                $sitemap->writeUrl(['package/search', 'query' => $package['name']], ['priority' => '0.9']);
+                $sitemap->writeUrl(['package/detail', 'fullname' => AssetPackage::buildFullName($package['type'], $package['name'])]);
+                $sitemap->writeUrl(['package/search', 'query' => $package['name']]);
             }
 
             // get generated content:
